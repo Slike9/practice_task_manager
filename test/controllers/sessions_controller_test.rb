@@ -2,8 +2,7 @@ require 'test_helper'
 
 class SessionsControllerTest < ActionController::TestCase
   def setup
-    @present_user_data = {email: '1@1.ru', password: '1', password_confirmation: '1'}
-    @present_user = User.create!(@present_user_data)
+    @present_user = FactoryGirl.create(:user)
   end
 
   test "get new success" do
@@ -11,22 +10,23 @@ class SessionsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'post create redirects to root url for correct user data' do
-    post :create, user_data: {email: @present_user_data[:email], password: @present_user_data[:password]}
-    assert_redirected_to root_url
+  test 'post create with correct user data signs in the user' do
+    post :create, user_data: {email: @present_user.email, password: @present_user.password}
+    assert_response :redirect
+    assert_equal @present_user, @controller.current_user
   end
 
-  test 'post create success for incorrect user data' do
+  test 'post create with incorrect user data: any user does not sign in' do
     post :create, user_data: {email: '2@2.ru', password: '2'}
     assert_response :success
+    assert !@controller.user_signed_in?
   end
 
-  test 'delete destroy redirects to root page' do
+  test 'delete destroy signs out user' do
+    @controller.sign_in(@present_user)
     delete :destroy
-    assert_redirected_to root_url
-
-    delete :destroy, {}, {user_id: @present_user.id}
-    assert_redirected_to root_url
+    assert_response :redirect
+    assert !@controller.user_signed_in?
   end
 
 end

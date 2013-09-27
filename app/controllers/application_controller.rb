@@ -14,14 +14,11 @@ class ApplicationController < ActionController::Base
     User.find(user_id) if user_id.present?
   end
 
-  def sign_in(user_data)
-    user = User.find_by_email(user_data[:email])
-    if user.present? && user.authenticate(user_data[:password])
-      session[:user_id] = user.id
-    end
+  def sign_in(user)
+    session[:user_id] = user.id
   end
 
-  def sign_out
+  def sign_out_current_user
     session.delete(:user_id)
   end
 

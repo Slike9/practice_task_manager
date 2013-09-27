@@ -34,6 +34,7 @@ gem 'simple_form'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
+gem "factory_girl_rails", "~> 4.0"
 
 gem "tconsole"
 
