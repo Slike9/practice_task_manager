@@ -21,4 +21,8 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def sign_out
+    session.delete(:user_id)
+  end
+
 end

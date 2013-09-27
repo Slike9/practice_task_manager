@@ -35,6 +35,8 @@ gem 'simple_form'
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
 
+gem "tconsole"
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
@@ -48,6 +50,3 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
