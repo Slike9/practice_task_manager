@@ -30,7 +30,7 @@
           .container.nav-collapse
             %ul.nav.pull-right
               - if user_signed_in?
-                %li= current_user.email
+                %li= link_to current_user.email
                 %li= link_to 'Sign out', session_path, method: :delete
               - else
                 %li= link_to "Sing in", new_session_path
@@ -43,9 +43,7 @@
           .well.sidebar-nav
             %ul.nav.nav-list
               %li.nav-header Sidebar
-              %li= link_to "Link 1", "/path1"
-              %li= link_to "Link 2", "/path2"
-              %li= link_to "Link 3", "/path3"
+              %li= link_to 'Stories', stories_path
         .span9
           = bootstrap_flash
           = yield
