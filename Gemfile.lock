@@ -162,7 +162,6 @@ DEPENDENCIES
   sdoc
   simple_form
   simplecov
-  coveralls
   sqlite3
   therubyracer
   turbolinks

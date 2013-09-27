@@ -29,9 +29,11 @@
           %a.brand(href="#") PracticeTaskManager
           .container.nav-collapse
             %ul.nav.pull-right
-              %li= link_to "Signup", new_user_path
-              -#%li= link_to "Link 2", "/path2"
-              -#%li= link_to "Link 3", "/path3"
+              - if user_signed_in?
+                = current_user.email
+              - else
+                %li= link_to "Signup", new_user_path
+                %li= link_to "Sing in", new_session_path
 
     .container-fluid
 
