@@ -1,10 +1,14 @@
 == Task Manager (Undev practice)
 
+{<img src="https://travis-ci.org/Slike9/practice_task_manager.png" />}[https://travis-ci.org/Slike9/practice_task_manager]
+
 * Ruby version: 2.0.0
 
 * Vagrant development envirenment
-   https://github.com/Slike9/practice_task_manager_vagrant
-   Place this in the same folder where the prohttps://github.com/Slike9/practice_task_manager_vagrant
+
+  https://github.com/Slike9/practice_task_manager_vagrant
+
+  Place this in the same folder where the project is
 
 * System dependencies
 
@@ -16,6 +20,6 @@
 
 * How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222222
+* Services (job queues, cache servers, search engines, etc.)                                                                                   
 
 * Deployment instructions
