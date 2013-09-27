@@ -3,7 +3,7 @@ require 'test_helper'
 class StoriesControllerTest < ActionController::TestCase
   setup do
     @current_user = FactoryGirl.create(:user)
-    @controller.sign_in(@current_user)
+    sign_in(@current_user)
     @story = FactoryGirl.create(:story)
   end
 
@@ -18,8 +18,8 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   test "create story" do
-    assert_difference('Story.count') do
-      post :create, story: { description: 'eval 1 + 1', title: 'Math operation' }
+    assert_difference -> { Story.count } do
+      post :create, story: {description: 'eval 1 + 1', title: 'Math operation'}
     end
     assert_response :redirect
 
