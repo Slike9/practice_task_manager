@@ -1,5 +1,5 @@
 class StoriesController < ApplicationController
-  before_action :set_story, only: [:show, :edit, :update, :destroy]
+  before_action :set_story, only: [:show, :edit, :update, :destroy, :proceed_state]
 
   # GET /stories
   # GET /stories.json
@@ -60,6 +60,12 @@ class StoriesController < ApplicationController
       format.html { redirect_to stories_url }
       format.json { head :no_content }
     end
+  end
+
+  def proceed_state
+    event = params[:event]
+    @story.try_fire_state_event(event)
+    redirect_to story_url(@story)
   end
 
   private

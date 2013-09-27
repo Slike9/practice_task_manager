@@ -6,6 +6,7 @@
     %th Description
     %th Author
     %th Owner
+    %th State
     %th
     %th
     %th
@@ -16,6 +17,8 @@
       %td= story.description
       %td= story.author
       %td= story.owner
+      %td= story.state
+      %td= render partial: 'events', locals: {story: story}
       %td= link_to 'Show', story
       %td= link_to 'Edit', edit_story_path(story)
       %td= link_to 'Destroy', story, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'btn btn-danger'

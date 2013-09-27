@@ -8,7 +8,9 @@ PracticeTaskManager::Application.routes.draw do
 
   resources :users
   resource :session
-  resources :stories
+  resources :stories do
+    post :proceed_state, on: :member
+  end
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
