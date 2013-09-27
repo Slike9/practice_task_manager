@@ -30,6 +30,7 @@ gem 'jbuilder', '~> 1.2'
 gem 'haml-rails'
 gem "less-rails"
 gem "twitter-bootstrap-rails"
+gem 'simple_form'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
@@ -37,7 +38,7 @@ group :doc do
 end
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
