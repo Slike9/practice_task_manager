@@ -1,0 +1,2 @@
+- story.state_events.each do |event|
+  = link_to event, proceed_state_story_path(story, event: event), method: :post, class: 'btn'

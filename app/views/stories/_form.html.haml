@@ -8,3 +8,4 @@
 
   .form-actions
     = f.button :submit
+    = render partial: 'events', locals: {story: @story} if @story.persisted?
