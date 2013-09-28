@@ -17,7 +17,7 @@
       %td= story.description
       %td= story.author
       %td= story.owner
-      %td= story.state
+      %td= story.human_state_name
       %td= render partial: 'events', locals: {story: story}
       %td= link_to 'Show', story
       %td= link_to 'Edit', edit_story_path(story)
