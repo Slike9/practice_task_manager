@@ -2,6 +2,6 @@
 
 = render partial: 'form', locals: {comment: @comment, story: @story}
 
-= link_to 'Show', @comment
+= link_to t('helpers.links.show'), @comment
 \|
-= link_to 'Back', story_comments_path(@story)
+= link_to t('helpers.links.back'), story_comments_path(@story)

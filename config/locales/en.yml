@@ -20,4 +20,29 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  app_title: Task Manager
+
+  views:
+    welcome:
+      title: Welcome
+    story_filter:
+      title: Filter
+    stories:
+      title:  Listing stories
+    new_story:
+      title: New story
+    edit_story:
+      title: Editing story
+    story:
+      comments_title: Comments
+    user_registration:
+      title: Registration
+    sign_in:
+      title: Sign in
+
+  flashes:
+    story:
+      invalid_state_event: 'Invalid story state event'
+      state_changed: "The story is %{state}"
+    user:
+      registered: 'Your have registered successfully'

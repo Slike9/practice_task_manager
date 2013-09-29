@@ -1,24 +1,24 @@
 %p
-  %b Title:
+  %b #{Story.human_attribute_name(:title)}:
   = @story.title
 %p
-  %b State:
+  %b #{Story.human_attribute_name(:state)}:
   = @story.human_state_name
 %p
-  %b Description:
+  %b #{Story.human_attribute_name(:description)}:
   = @story.description
 %p
-  %b Author:
+  %b #{Story.human_attribute_name(:author)}:
   = @story.author
 %p
-  %b Owner:
+  %b #{Story.human_attribute_name(:owner)}:
   = @story.owner
 
-= link_to 'Edit', edit_story_path(@story)
+= link_to t('helpers.links.edit'), edit_story_path(@story)
 \|
-= link_to 'Back', stories_path
+= link_to t('helpers.links.back'), stories_path
 
 = render partial: 'comments/form', locals: {comment: Comment.new, story: @story}
 
-%h2 Comments
+%h2= t('views.story.comments_title')
 = render partial: 'comments/comment', collection: @story.comments

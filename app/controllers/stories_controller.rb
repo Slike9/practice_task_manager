@@ -66,9 +66,9 @@ class StoriesController < ApplicationController
   def proceed_state
     @story.state_event = params[:event]
     if @story.save
-      redirect_to story_url(@story), notice: "The story is #{@story.state}"
+      redirect_to story_url(@story), notice: t('flashes.story.state_changed', state: @story.human_state_name)
     else
-      redirect_to story_url(@story), flash: {error: 'Invalid story state event'}
+      redirect_to story_url(@story), flash: {error: t('flashes.story.invalid_state_event')}
     end
   end
 
