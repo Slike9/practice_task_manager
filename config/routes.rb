@@ -1,5 +1,4 @@
 PracticeTaskManager::Application.routes.draw do
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -10,7 +9,9 @@ PracticeTaskManager::Application.routes.draw do
   resource :session
   resources :stories do
     post :proceed_state, on: :member
+    resources :comments
   end
+  resources :comments, only: [:show, :edit, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
