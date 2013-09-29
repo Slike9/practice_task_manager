@@ -1,30 +1,33 @@
 %h1= t('views.stories.title')
 
-.row-fluid
-  .span9
-    %table.table
-      %tr
-        %th= Story.human_attribute_name(:title)
-        %th= Story.human_attribute_name(:description)
-        %th= Story.human_attribute_name(:author)
-        %th= Story.human_attribute_name(:owner)
-        %th= Story.human_attribute_name(:state)
-        %th
-        %th
-        %th
+= button_tag class: 'btn btn-link', data: {toggle: 'collapse', target: '#stories-filter'} do
+  = t('views.story_filter.title')
+  %i.icon-chevron-down
+#stories-filter.collapse.out
+  = render partial: 'filter', locals: {query: @q}
 
-      - @stories.each do |story|
-        %tr
-          %td= story.title
-          %td= story.description
-          %td= story.author
-          %td= story.owner
-          %td= story.human_state_name
-          %td= render partial: 'events', locals: {story: story}
-          %td= link_to t('helpers.links.show'), story
-          %td= link_to t('helpers.links.edit'), edit_story_path(story)
-          %td= link_to t('helpers.links.destroy'), story, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }, class: 'btn btn-danger'
-  .span3
-    = render partial: 'filter', locals: {query: @q}
+%table.table
+  %tr
+    %th= Story.human_attribute_name(:title)
+    %th= Story.human_attribute_name(:description)
+    %th= Story.human_attribute_name(:author)
+    %th= Story.human_attribute_name(:owner)
+    %th= Story.human_attribute_name(:state)
+    %th
+    %th
+    %th
 
-= link_to t('helpers.titles.new', model: Story), new_story_path
+  - @stories.each do |story|
+    %tr
+      %td= story.title
+      %td= story.description
+      %td= story.author
+      %td= story.owner
+      %td= story.human_state_name
+      %td= render partial: 'events', locals: {story: story}
+      %td= link_to t('helpers.links.show'), story
+      %td= link_to t('helpers.links.edit'), edit_story_path(story)
+      %td= link_to t('helpers.links.destroy'), story, :method => :delete, :data => { :confirm => t('helpers.links.confirm') }, class: 'btn btn-danger'
+
+
+= paginate @stories

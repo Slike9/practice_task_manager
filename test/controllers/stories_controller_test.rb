@@ -56,7 +56,7 @@ class StoriesControllerTest < ActionController::TestCase
 
   test 'story state changing' do
     story = create(:new_story)
-    post :proceed_state, id: story.id, event: :start
+    patch :proceed_state, id: story.id, event: :start
     assert_response :redirect
     story.reload
     assert story.started?

@@ -1,8 +1,3 @@
 = simple_form_for([story, comment]) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :body, label: false, input_html: {rows: 4, class: 'span5'}
-
-  .form-actions
-    = f.button :submit
+  = f.input :body, label: false, input_html: {rows: 4, class: 'span5'}
+  = f.button :submit

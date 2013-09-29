@@ -28,7 +28,7 @@ en:
     story_filter:
       title: Filter
     stories:
-      title:  Listing stories
+      title:  Stories
     new_story:
       title: New story
     edit_story:

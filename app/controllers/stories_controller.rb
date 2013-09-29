@@ -6,6 +6,7 @@ class StoriesController < ApplicationController
   def index
     @q = Story.search(params[:q])
     @stories = @q.result
+    @stories = @stories.page(params[:page]).per(params[:per_page])
   end
 
   # GET /stories/1
