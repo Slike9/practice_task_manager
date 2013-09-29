@@ -1,3 +1,16 @@
+- content_for :sidebar do
+  .sidebar.well
+    %h4 Filter
+    = search_form_for @q do |f|
+      = f.label :author_email_cont, 'Author'
+      = f.text_field :author_email_cont
+      = f.label :author_email_cont, 'Owner'
+      = f.text_field :owner_email_cont
+      = f.label :state_eq, 'State'
+      = f.select :state_eq, Story.state_names, include_blank: true
+      %br
+      = f.submit class: 'btn'
+
 %h1 Listing stories
 
 %table.table

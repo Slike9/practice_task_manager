@@ -32,6 +32,12 @@ module StoryStates
     end
   end
 
+  module ClassMethods
+    def state_names
+      state_machines[:state].states.map(&:name)
+    end
+  end
+
   def try_fire_state_event(event)
     can_fire_state_event?(event) ? fire_state_event(event) : false
   end
@@ -39,4 +45,5 @@ module StoryStates
   def can_fire_state_event?(event)
     state_events.any?{|x| x.to_s == event.to_s}
   end
+
 end

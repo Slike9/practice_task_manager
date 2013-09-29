@@ -4,7 +4,8 @@ class StoriesController < ApplicationController
   # GET /stories
   # GET /stories.json
   def index
-    @stories = Story.all
+    @q = Story.search(params[:q])
+    @stories = @q.result
   end
 
   # GET /stories/1

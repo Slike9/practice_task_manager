@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20130928045828) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "comments", force: true do |t|
     t.text     "body"
     t.integer  "author_id"
@@ -21,8 +24,8 @@ ActiveRecord::Schema.define(version: 20130928045828) do
     t.datetime "updated_at"
   end
 
-  add_index "comments", ["author_id"], name: "index_comments_on_author_id"
-  add_index "comments", ["story_id"], name: "index_comments_on_story_id"
+  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
+  add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
 
   create_table "stories", force: true do |t|
     t.string   "title"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20130928045828) do
     t.string   "state"
   end
 
-  add_index "stories", ["author_id"], name: "index_stories_on_author_id"
-  add_index "stories", ["owner_id"], name: "index_stories_on_owner_id"
+  add_index "stories", ["author_id"], name: "index_stories_on_author_id", using: :btree
+  add_index "stories", ["owner_id"], name: "index_stories_on_owner_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false

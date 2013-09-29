@@ -33,6 +33,7 @@ gem "less-rails"
 gem "twitter-bootstrap-rails"
 gem 'simple_form'
 gem 'state_machine'
+gem 'ransack'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
