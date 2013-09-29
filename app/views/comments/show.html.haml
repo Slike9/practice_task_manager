@@ -1,0 +1,13 @@
+%p
+  %b Body:
+  = @comment.body
+%p
+  %b Author:
+  = @comment.author
+%p
+  %b Story:
+  = @comment.story
+
+= link_to 'Edit', edit_comment_path(@comment)
+\|
+= link_to 'Back', story_comments_path(@story)
