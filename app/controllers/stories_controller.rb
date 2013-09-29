@@ -64,9 +64,12 @@ class StoriesController < ApplicationController
   end
 
   def proceed_state
-    event = params[:event]
-    @story.try_fire_state_event(event)
-    redirect_to story_url(@story)
+    @story.state_event = params[:event]
+    if @story.save
+      redirect_to story_url(@story), notice: "The story is #{@story.state}"
+    else
+      redirect_to story_url(@story), flash: {error: 'Invalid story state event'}
+    end
   end
 
   private

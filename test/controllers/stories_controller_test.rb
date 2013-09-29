@@ -54,7 +54,7 @@ class StoriesControllerTest < ActionController::TestCase
     assert_response :redirect
   end
 
-  test 'start new story' do
+  test 'story state changing' do
     story = create(:new_story)
     post :proceed_state, id: story.id, event: :start
     assert_response :redirect
@@ -62,35 +62,4 @@ class StoriesControllerTest < ActionController::TestCase
     assert story.started?
   end
 
-  test 'finish started story' do
-    story = create(:story, state: :started)
-    post :proceed_state, id: story.id, event: :finish
-    assert_response :redirect
-    story.reload
-    assert story.finished?
-  end
-
-  test 'accept finished story' do
-    story = create(:story, state: :finished)
-    post :proceed_state, id: story.id, event: :accept
-    assert_response :redirect
-    story.reload
-    assert story.accepted?
-  end
-
-  test 'reject finished story' do
-    story = create(:story, state: :finished)
-    post :proceed_state, id: story.id, event: :reject
-    assert_response :redirect
-    story.reload
-    assert story.rejected?
-  end
-
-  test 'reopen rejected story' do
-    story = create(:story, state: :rejected)
-    post :proceed_state, id: story.id, event: :reopen
-    assert_response :redirect
-    story.reload
-    assert story.started?
-  end
 end

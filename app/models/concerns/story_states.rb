@@ -38,12 +38,4 @@ module StoryStates
     end
   end
 
-  def try_fire_state_event(event)
-    can_fire_state_event?(event) ? fire_state_event(event) : false
-  end
-
-  def can_fire_state_event?(event)
-    state_events.any?{|x| x.to_s == event.to_s}
-  end
-
 end

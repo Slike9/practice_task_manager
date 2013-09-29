@@ -8,7 +8,7 @@ PracticeTaskManager::Application.routes.draw do
   resources :users
   resource :session
   resources :stories do
-    post :proceed_state, on: :member
+    patch :proceed_state, on: :member
     resources :comments
   end
   resources :comments, only: [:show, :edit, :update, :destroy]

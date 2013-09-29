@@ -1,2 +1,3 @@
-- story.state_events.each do |event|
-  = link_to event, proceed_state_story_path(story, event: event), method: :post, class: 'btn'
+.btn-group
+  - story.state_events.each do |event|
+    = link_to Story.human_state_event_name(event), proceed_state_story_path(story, event: event), method: :patch, class: 'btn'

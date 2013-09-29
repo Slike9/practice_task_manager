@@ -9,7 +9,7 @@ class UsersControllerTest < ActionController::TestCase
   test 'user creating: correct user data' do
     post :create, user: {email: '1@1.ru', password: '1', password_confirmation: '1'}
     assert_response :redirect
-    assert user_with_email_exists?('1@1.ru')
+    assert User.exists?(email: '1@1.ru')
   end
 
   test 'user creating: incorrect user data' do
@@ -24,11 +24,5 @@ class UsersControllerTest < ActionController::TestCase
       post :create, user: data_with_incorrect_password
     end
     assert_response :success
-  end
-
-  private
-
-  def user_with_email_exists?(email)
-    User.find_by(email: email).present?
   end
 end
