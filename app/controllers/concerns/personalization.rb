@@ -5,7 +5,7 @@ module Personalization
 
   def current_user
     user_id = session[:user_id]
-    User.find(user_id) if user_id.present?
+    User.find_by(id: user_id) if user_id.present?
   end
 
   def sign_in(user)
