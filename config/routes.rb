@@ -11,7 +11,7 @@ PracticeTaskManager::Application.routes.draw do
     patch :proceed_state, on: :member
     resources :comments
   end
-  resources :comments, only: [:show, :edit, :update, :destroy]
+  resources :comments, only: [:show, :edit, :create, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

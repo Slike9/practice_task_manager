@@ -28,6 +28,14 @@ class CommentsControllerTest < ActionController::TestCase
     assert_equal @story, created_comment.story
   end
 
+
+  test 'create child comment' do
+    assert_difference('@comment.children.count', +1) do
+      post :create, comment: {parent_id: @comment, body: 'It\'s a child comment'}
+    end
+    assert_response :redirect
+  end
+
   test "should show comment" do
     get :show, id: @comment, story_id: @story
     assert_response :success

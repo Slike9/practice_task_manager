@@ -36,6 +36,7 @@ gem 'state_machine'
 gem 'ransack'
 gem 'kaminari-bootstrap'
 gem 'carrierwave'
+gem 'ancestry'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false

@@ -21,4 +21,4 @@
 = render partial: 'comments/form', locals: {comment: Comment.new, story: @story}
 
 %h2= t('.comments_title')
-= render partial: 'comments/comment', collection: @story.comments
+= render partial: 'comments/comment', collection: @story.comments.ordered_by_time
