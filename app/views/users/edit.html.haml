@@ -4,5 +4,10 @@
   .form-inputs
     = f.input :email
     = f.input :avatar
+    = f.input :avatar_cache, as: :hidden
+    - if @user.avatar?
+      = image_tag @user.avatar, size: '128x128'
+      = f.input :remove_avatar, as: :boolean
+
   .form-actions
     = f.submit
