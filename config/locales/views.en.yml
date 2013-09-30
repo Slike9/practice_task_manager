@@ -22,10 +22,10 @@ en:
       filter_title: Filter
     new:
       title: New story
-    show:
-      comments_title: Comments
     edit:
       title: Editing story
   comments:
     comment:
       comment: Comment
+    commentation:
+      comments_title: Comments

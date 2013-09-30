@@ -1,5 +1,5 @@
 - resource = local_assigns.has_key?(:story) ? [story, comment] : comment
-= simple_form_for(resource) do |f|
+= simple_form_for(resource, html: {data: {remote: true, format: :js}}) do |f|
   = f.input :body, label: false, input_html: {rows: 4, class: 'span5'}
   = f.input :parent_id, as: :hidden
   = f.button :submit

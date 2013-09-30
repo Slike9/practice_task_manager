@@ -1,4 +1,4 @@
-%p
+.comment
   =l comment.created_at, format: :short
   by
   = comment.author
@@ -13,5 +13,4 @@
 
   .comment-children
     - comment.children.ordered_by_time.each do |child_comment|
-      .child-comment
-        = render child_comment
+      = render child_comment

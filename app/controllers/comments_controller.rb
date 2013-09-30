@@ -33,9 +33,11 @@ class CommentsController < ApplicationController
       if @comment.save
         format.html { redirect_to @comment.root.story }
         format.json { render action: 'show', status: :created, location: @comment }
+        format.js
       else
         format.html { render action: 'new' }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
+        format.js
       end
     end
   end
