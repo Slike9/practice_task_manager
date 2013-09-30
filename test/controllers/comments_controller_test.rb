@@ -19,21 +19,23 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should create comment" do
-    assert_difference('Comment.count') do
-      post :create, story_id: @story, comment: { body: @comment.body }
-    end
+    comment_params = attributes_for(:comment)
+    post :create, story_id: @story, comment: comment_params
     assert_response :redirect
-    created_comment = assigns(:comment)
+    created_comment = Comment.find_by(body: comment_params[:body])
+    assert created_comment.present?
     assert_equal current_user, created_comment.author
     assert_equal @story, created_comment.story
   end
 
-
   test 'create child comment' do
-    assert_difference('@comment.children.count', +1) do
-      post :create, comment: {parent_id: @comment, body: 'It\'s a child comment'}
-    end
+    comment_params = attributes_for(:child_comment, parent_id: @comment)
+    post :create, comment: comment_params
     assert_response :redirect
+    created_comment = Comment.find_by(body: comment_params[:body])
+    assert created_comment.present?
+    assert_equal @comment, created_comment.parent
+    assert_nil created_comment.story
   end
 
   test "should show comment" do
@@ -47,17 +49,16 @@ class CommentsControllerTest < ActionController::TestCase
   end
 
   test "should update comment" do
-    patch :update, id: @comment, story_id: @story, comment: { body: 'New comment body' }
+    comment_params = attributes_for(:comment)
+    patch :update, id: @comment, story_id: @story, comment: comment_params
     assert_response :redirect
     @comment.reload
-    assert_equal 'New comment body', @comment.body
+    assert_equal comment_params[:body], @comment.body
   end
 
   test "should destroy comment" do
-    assert_difference('Comment.count', -1) do
-      delete :destroy, id: @comment, story_id: @story
-    end
-
+    delete :destroy, id: @comment, story_id: @story
     assert_response :redirect
+    assert_nil Comment.find_by(body: @comment.body)
   end
 end

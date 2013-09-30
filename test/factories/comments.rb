@@ -2,14 +2,13 @@
 
 FactoryGirl.define do
   factory :comment do
-    body "MyText"
+    sequence(:body) {|n| "Comment #{n} body" }
     author
     story
   end
 
-  factory :child_comment do
-    body "It is a child comment"
-    author
+  factory :child_comment, parent: :comment do
+    story nil
     association :parent, factory: :comment
   end
 
