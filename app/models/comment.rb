@@ -7,5 +7,5 @@ class Comment < ActiveRecord::Base
   validates :body, presence: true
   validates :story, presence: true, if: :root?
 
-  scope :ordered_by_time, ->{ order('created_at desc')}
+  scope :ordered_by_time, ->{ order(created_at: :desc) }
 end
