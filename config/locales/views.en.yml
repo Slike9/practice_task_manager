@@ -26,3 +26,6 @@ en:
       comments_title: Comments
     edit:
       title: Editing story
+  comments:
+    comment:
+      comment: Comment
