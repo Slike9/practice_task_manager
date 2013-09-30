@@ -5,6 +5,24 @@ en:
     sign_in: Sign in
     sign_up: Sign up
     sign_out: Sign out
+  welcome:
+    index:
+      title: Welcome
   users:
+    new:
+      title: Registration
     edit:
       title: User editing
+  sessions:
+    new:
+      title: Sign in
+  stories:
+    index:
+      title: Stories
+      filter_title: Filter
+    new:
+      title: New story
+    show:
+      comments_title: Comments
+    edit:
+      title: Editing story

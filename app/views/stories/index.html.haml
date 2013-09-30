@@ -1,7 +1,7 @@
-%h1= t('views.stories.title')
+%h1= t('.title')
 
 = button_tag class: 'btn btn-link', data: {toggle: 'collapse', target: '#stories-filter'} do
-  = t('views.story_filter.title')
+  = t('.filter_title')
   %i.icon-chevron-down
 #stories-filter.collapse.out
   = render partial: 'filter', locals: {query: @q}

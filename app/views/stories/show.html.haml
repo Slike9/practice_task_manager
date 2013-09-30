@@ -20,5 +20,5 @@
 
 = render partial: 'comments/form', locals: {comment: Comment.new, story: @story}
 
-%h2= t('views.story.comments_title')
+%h2= t('.comments_title')
 = render partial: 'comments/comment', collection: @story.comments

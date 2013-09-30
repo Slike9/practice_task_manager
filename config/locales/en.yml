@@ -22,24 +22,6 @@
 en:
   app_title: Task Manager
 
-  views:
-    welcome:
-      title: Welcome
-    story_filter:
-      title: Filter
-    stories:
-      title:  Stories
-    new_story:
-      title: New story
-    edit_story:
-      title: Editing story
-    story:
-      comments_title: Comments
-    user_registration:
-      title: Registration
-    sign_in:
-      title: Sign in
-
   flashes:
     story:
       invalid_state_event: 'Invalid story state event'
