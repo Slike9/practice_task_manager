@@ -1,6 +1,10 @@
 require 'test_helper'
 
 class UsersControllerTest < ActionController::TestCase
+  def setup
+    @user = create(:user)
+  end
+
   test "get new" do
     get :new
     assert_response :success
@@ -24,5 +28,22 @@ class UsersControllerTest < ActionController::TestCase
       post :create, user: data_with_incorrect_password
     end
     assert_response :success
+  end
+
+  test 'get show' do
+    get :show, id: @user
+    assert_response :success
+  end
+
+  test 'get edit' do
+    get :edit, id: @user
+    assert_response :success
+  end
+
+  test 'patch update' do
+    patch :update, id: @user, user: {email: 'new@mail.ru'}
+    assert_response :redirect
+    @user.reload
+    assert 'new@mail.ru', @user.email
   end
 end

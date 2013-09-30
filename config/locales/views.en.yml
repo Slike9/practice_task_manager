@@ -1,0 +1,10 @@
+en:
+  main_menu:
+    profile: Profile
+    edit_profile: Edit profile
+    sign_in: Sign in
+    sign_up: Sign up
+    sign_out: Sign out
+  users:
+    edit:
+      title: User editing

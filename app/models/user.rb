@@ -3,6 +3,8 @@ class User < ActiveRecord::Base
 
   validates :email, presence: true, uniqueness: true
 
+  mount_uploader :avatar, AvatarUploader
+
   def to_s
     email
   end
