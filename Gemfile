@@ -35,6 +35,7 @@ gem 'simple_form'
 gem 'state_machine'
 gem 'ransack'
 gem 'kaminari-bootstrap'
+gem 'carrierwave'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false

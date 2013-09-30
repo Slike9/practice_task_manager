@@ -1,0 +1,6 @@
+%p
+  %b #{User.human_attribute_name(:email)}:
+  = @user.email
+%p
+  %b #{User.human_attribute_name(:avatar)}:
+  = image_tag @user.avatar, size: '128x128'
