@@ -1,4 +1,12 @@
 en:
+  breadcrumbs:
+    application:
+      home: Home
+    stories:
+      stories: Stories
+      story: Story
+      new: New
+      edit: Edit
   main_menu:
     profile: Profile
     edit_profile: Edit profile

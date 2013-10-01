@@ -6,4 +6,6 @@ class ApplicationController < ActionController::Base
   include Personalization
 
   helper_method :user_signed_in?, :current_user
+
+  add_breadcrumb :home, :root_path
 end

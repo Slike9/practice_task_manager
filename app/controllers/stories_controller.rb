@@ -1,6 +1,15 @@
 class StoriesController < ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy, :proceed_state]
 
+  add_breadcrumb :stories, :stories_path
+  add_breadcrumb :new, :new_story_path, only: [:new]
+  before_action only: [:show, :edit] do
+    add_breadcrumb :story, story_path(@story)
+  end
+  before_action only: :edit do
+    add_breadcrumb :edit, edit_story_path(@story)
+  end
+
   # GET /stories
   # GET /stories.json
   def index
