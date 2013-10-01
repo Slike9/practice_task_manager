@@ -59,6 +59,6 @@ class CommentsControllerTest < ActionController::TestCase
   test "should destroy comment" do
     delete :destroy, id: @comment, story_id: @story
     assert_response :redirect
-    assert_nil Comment.find_by(body: @comment.body)
+    assert_not Comment.exists?(body: @comment.body)
   end
 end
