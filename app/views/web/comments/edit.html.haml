@@ -1,7 +1,0 @@
-%h1 Editing comment
-
-= render partial: 'form', locals: {comment: @comment, story: @story}
-
-= link_to t('helpers.links.show'), [@story, @comment]
-\|
-= link_to t('helpers.links.back'), story_comments_path(@story)

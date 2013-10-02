@@ -10,7 +10,12 @@ PracticeTaskManager::Application.routes.draw do
     resource :session
     resources :stories do
       patch :proceed_state, on: :member
-      resources :comments
+    end
+  end
+
+  namespace :api do
+    resources :stories, :only => [] do
+      resources :comments, :only => [:show, :create, :destroy]
     end
   end
 
