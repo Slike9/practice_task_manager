@@ -14,8 +14,10 @@ PracticeTaskManager::Application.routes.draw do
   end
 
   namespace :api do
-    resources :stories, :only => [] do
-      resources :comments, :only => [:show, :create, :destroy]
+    resources :stories, only: [] do
+      scope module: :stories do
+        resources :comments, only: [:show, :create, :destroy]
+      end
     end
   end
 
