@@ -30,12 +30,12 @@ class Web::CommentsControllerTest < ActionController::TestCase
 
   test 'create child comment' do
     comment_params = attributes_for(:child_comment, parent_id: @comment)
-    post :create, comment: comment_params
+    post :create, story_id: @story, comment: comment_params
     assert_response :redirect
     created_comment = Comment.find_by(body: comment_params[:body])
     assert created_comment.present?
     assert_equal @comment, created_comment.parent
-    assert_nil created_comment.story
+    assert_equal @story, created_comment.story
   end
 
   test "should show comment" do

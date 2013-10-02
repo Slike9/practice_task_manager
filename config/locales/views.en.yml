@@ -34,8 +34,8 @@ en:
         title: New story
       edit:
         title: Editing story
+      show:
+        comments_title: Comments
     comments:
       comment:
         comment: Comment
-      commentation:
-        comments_title: Comments

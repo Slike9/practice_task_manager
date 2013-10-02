@@ -15,12 +15,13 @@ class Web::StoriesController < Web::ApplicationController
   def index
     @search = Story.search(params[:q])
     @stories = @search.result
-    @stories = @stories.page(params[:page]).per(params[:per_page])
+    @stories = @stories.includes(:author).page(params[:page]).per(params[:per_page])
   end
 
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @comments = @story.comments.includes(:author).arrange(order: :created_at)
   end
 
   # GET /stories/new

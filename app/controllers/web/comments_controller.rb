@@ -31,7 +31,7 @@ class Web::CommentsController < Web::ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment.root.story }
+        format.html { redirect_to @story }
         format.json { render action: 'show', status: :created, location: @comment }
         format.js
       else
@@ -74,8 +74,7 @@ class Web::CommentsController < Web::ApplicationController
   end
 
   def set_story
-    story_id = params[:story_id]
-    @story = story_id.present? ? Story.find(story_id) : @comment.try(:story)
+    @story = Story.find(params[:story_id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.

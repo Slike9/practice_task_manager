@@ -14,9 +14,9 @@
       %td= comment.body
       %td= comment.author
       %td= comment.story
-      %td= link_to 'Show', comment
-      %td= link_to 'Edit', edit_comment_path(comment)
-      %td= link_to 'Destroy', comment, :method => :delete, :data => { :confirm => 'Are you sure?' }
+      %td= link_to 'Show', [@story, comment]
+      %td= link_to 'Edit', edit_story_comment_path(@story, comment)
+      %td= link_to 'Destroy', [@story, comment], :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
 

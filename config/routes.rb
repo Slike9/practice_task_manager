@@ -12,7 +12,6 @@ PracticeTaskManager::Application.routes.draw do
       patch :proceed_state, on: :member
       resources :comments
     end
-    resources :comments, only: [:show, :edit, :create, :update, :destroy]
   end
 
   # Example of regular route:
