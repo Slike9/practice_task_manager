@@ -1,4 +1,4 @@
-class StoriesController < ApplicationController
+class Web::StoriesController < Web::ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy, :proceed_state]
 
   add_breadcrumb :stories, :stories_path

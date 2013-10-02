@@ -3,15 +3,17 @@ PracticeTaskManager::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'web/welcome#index'
 
-  resources :users
-  resource :session
-  resources :stories do
-    patch :proceed_state, on: :member
-    resources :comments
+  scope module: :web do
+    resources :users
+    resource :session
+    resources :stories do
+      patch :proceed_state, on: :member
+      resources :comments
+    end
+    resources :comments, only: [:show, :edit, :create, :update, :destroy]
   end
-  resources :comments, only: [:show, :edit, :create, :update, :destroy]
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

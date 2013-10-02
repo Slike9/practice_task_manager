@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoriesControllerTest < ActionController::TestCase
+class Web::StoriesControllerTest < ActionController::TestCase
   setup do
     @current_user = FactoryGirl.create(:user)
     sign_in(@current_user)

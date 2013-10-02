@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class SessionsControllerTest < ActionController::TestCase
+class Web::SessionsControllerTest < ActionController::TestCase
   def setup
     @present_user = FactoryGirl.create(:user)
   end

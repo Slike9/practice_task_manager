@@ -1,39 +1,41 @@
 en:
   breadcrumbs:
-    application:
-      home: Home
+    web:
+      application:
+        home: Home
+      stories:
+        stories: Stories
+        story: Story
+        new: New
+        edit: Edit
+  web:
+    main_menu:
+      profile: Profile
+      edit_profile: Edit profile
+      sign_in: Sign in
+      sign_up: Sign up
+      sign_out: Sign out
+    welcome:
+      index:
+        title: Welcome
+    users:
+      new:
+        title: Registration
+      edit:
+        title: User editing
+    sessions:
+      new:
+        title: Sign in
     stories:
-      stories: Stories
-      story: Story
-      new: New
-      edit: Edit
-  main_menu:
-    profile: Profile
-    edit_profile: Edit profile
-    sign_in: Sign in
-    sign_up: Sign up
-    sign_out: Sign out
-  welcome:
-    index:
-      title: Welcome
-  users:
-    new:
-      title: Registration
-    edit:
-      title: User editing
-  sessions:
-    new:
-      title: Sign in
-  stories:
-    index:
-      title: Stories
-      filter_title: Filter
-    new:
-      title: New story
-    edit:
-      title: Editing story
-  comments:
-    comment:
-      comment: Comment
-    commentation:
-      comments_title: Comments
+      index:
+        title: Stories
+        filter_title: Filter
+      new:
+        title: New story
+      edit:
+        title: Editing story
+    comments:
+      comment:
+        comment: Comment
+      commentation:
+        comments_title: Comments

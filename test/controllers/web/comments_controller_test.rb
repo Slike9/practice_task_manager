@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class CommentsControllerTest < ActionController::TestCase
+class Web::CommentsControllerTest < ActionController::TestCase
   setup do
     @current_user = create(:user)
     sign_in(@current_user)
