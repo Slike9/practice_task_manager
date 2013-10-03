@@ -34,7 +34,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)
     assert created_comment.present?
-    assert_equal @comment, created_comment.parent
+    assert {@comment == created_comment.parent}
   end
 
   test 'update comment' do
