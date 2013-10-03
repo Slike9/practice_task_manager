@@ -46,6 +46,10 @@ gem 'wrong', group: :test
 gem "tconsole"
 gem 'unicorn'
 
+group :development do
+  gem 'bullet', github: 'flyerhzm/bullet'
+end
+
 group 'production' do
   gem 'rails_12factor'
 end

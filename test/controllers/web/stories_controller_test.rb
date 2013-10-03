@@ -4,7 +4,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
   setup do
     @current_user = FactoryGirl.create(:user)
     sign_in(@current_user)
-    @story = FactoryGirl.create(:story)
+    @story = FactoryGirl.create(:story_with_comments)
   end
 
   test "get index" do

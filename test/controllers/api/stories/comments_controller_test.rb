@@ -29,7 +29,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   end
 
   test 'create child comment' do
-    comment_params = attributes_for(:child_comment, parent_id: @comment.id)
+    comment_params = attributes_for(:comment, parent_id: @comment.id)
     post :create, format: :json, story_id: @story, comment: comment_params
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)

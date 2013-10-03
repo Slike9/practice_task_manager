@@ -7,17 +7,12 @@ FactoryGirl.define do
     story
   end
 
-  factory :child_comment, parent: :comment do
-    story nil
-    association :parent, factory: :comment
-  end
-
   factory :comment_with_children, parent: :comment do
     ignore do
       child_count 5
     end
     after(:create) do |comment, evaluator|
-      FactoryGirl.create_list(:child_comment, evaluator.child_count, parent: comment)
+      FactoryGirl.create_list(:comment, evaluator.child_count, parent: comment, story: comment.story)
     end
   end
 end
