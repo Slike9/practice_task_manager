@@ -1,10 +1,10 @@
 class Api::Stories::ApplicationController < Api::ApplicationController
 
-  helper_method :story
+  helper_method :resource_story
 
   private
 
-  def story
-    @story ||= Story.find(params[:story_id])
+  def resource_story
+    @resource_story ||= Story.find(params[:story_id])
   end
 end
