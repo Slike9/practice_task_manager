@@ -1,0 +1,2 @@
+- comments.each do |comment, child_comments|
+  = render partial: 'web/comments/comment', locals: {comment: comment, child_comments: child_comments }

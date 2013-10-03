@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class StoriesControllerTest < ActionController::TestCase
+class Web::StoriesControllerTest < ActionController::TestCase
   setup do
     @current_user = FactoryGirl.create(:user)
     sign_in(@current_user)
@@ -18,14 +18,12 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   test "create story" do
-    assert_difference -> { Story.count } do
-      post :create, story: {description: 'eval 1 + 1', title: 'Math operation'}
-    end
+    story_params = attributes_for(:story)
+    post :create, story: story_params
     assert_response :redirect
-
-    created_story = assigns(:story)
-    assert_equal created_story.title, 'Math operation'
-    assert_equal created_story.description, 'eval 1 + 1'
+    created_story = Story.find_by(title: story_params[:title])
+    assert created_story.present?
+    assert_equal created_story.description, story_params[:description]
     assert_equal @current_user, created_story.author
   end
 
@@ -40,18 +38,18 @@ class StoriesControllerTest < ActionController::TestCase
   end
 
   test "update story" do
-    patch :update, id: @story, story: { description: 'implement', title: 'super feature' }
+    story_params = attributes_for(:story)
+    patch :update, id: @story, story: story_params
     assert_response :redirect
     @story.reload
-    assert_equal 'super feature', @story.title
-    assert_equal 'implement', @story.description
+    assert_equal story_params[:title], @story.title
+    assert_equal story_params[:description], @story.description
   end
 
   test "destroy story" do
-    assert_difference('Story.count', -1) do
-      delete :destroy, id: @story
-    end
+    delete :destroy, id: @story
     assert_response :redirect
+    assert_not Story.exists?(title: @story.title)
   end
 
   test 'story state changing' do
