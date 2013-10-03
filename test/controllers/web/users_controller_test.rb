@@ -10,24 +10,10 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test 'user creating: correct user data' do
+  test 'user creating' do
     post :create, user: {email: '1@1.ru', password: '1', password_confirmation: '1'}
     assert_response :redirect
     assert User.exists?(email: '1@1.ru')
-  end
-
-  test 'user creating: incorrect user data' do
-    data_without_email = {email: '', password: '1', password_confirmation: '1'}
-    assert_no_difference -> { User.count } do
-      post :create, user: data_without_email
-    end
-    assert_response :success
-
-    data_with_incorrect_password = {email: '1@1.ru', password: '1', password_confirmation: '2'}
-    assert_no_difference -> { User.count } do
-      post :create, user: data_with_incorrect_password
-    end
-    assert_response :success
   end
 
   test 'get show' do
