@@ -37,6 +37,8 @@ gem 'ransack'
 gem 'kaminari-bootstrap'
 gem 'carrierwave'
 gem 'ancestry'
+gem 'rails-observers'
+gem 'configus'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
@@ -50,7 +52,11 @@ group :development do
   gem 'bullet', github: 'flyerhzm/bullet'
 end
 
-group 'production' do
+group :test do
+  gem 'test_after_commit'
+end
+
+group :production do
   gem 'rails_12factor'
 end
 

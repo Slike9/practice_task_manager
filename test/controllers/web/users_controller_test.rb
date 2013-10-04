@@ -11,9 +11,14 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test 'user creating' do
-    post :create, user: {email: '1@1.ru', password: '1', password_confirmation: '1'}
+    user_params = attributes_for(:user)
+    post :create, user: user_params
     assert_response :redirect
-    assert User.exists?(email: '1@1.ru')
+
+    user = User.find_by(email: user_params[:email])
+    assert user.present?
+
+    assert user_registration_email_sent?(user), 'User registration email has not been sent'
   end
 
   test 'get show' do
@@ -27,9 +32,18 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test 'patch update' do
-    patch :update, id: @user, user: {email: 'new@mail.ru'}
+    user_params = attributes_for(:user)
+    patch :update, id: @user, user: user_params
     assert_response :redirect
+
     @user.reload
-    assert 'new@mail.ru', @user.email
+    assert user_params[:email], @user.email
+  end
+
+  private
+
+  def user_registration_email_sent?(user)
+    registration_email = ActionMailer::Base.deliveries.last
+    registration_email.present? && [user.email] == registration_email.to
   end
 end

@@ -51,6 +51,8 @@ GEM
       execjs
     coffee-script-source (1.6.3)
     commonjs (0.2.7)
+    configus (0.0.4)
+      rake
     coveralls (0.7.0)
       multi_json (~> 1.3)
       rest-client
@@ -116,6 +118,8 @@ GEM
       bundler (>= 1.3.0, < 2.0)
       railties (= 4.0.0)
       sprockets-rails (~> 2.0.0)
+    rails-observers (0.1.2)
+      activemodel (~> 4.0)
     rails_12factor (0.0.2)
       rails_serve_static_assets
       rails_stdout_logging
@@ -171,6 +175,7 @@ GEM
     tconsole (1.0.0)
     term-ansicolor (1.2.2)
       tins (~> 0.8)
+    test_after_commit (0.2.1)
     therubyracer (0.12.0)
       libv8 (~> 3.16.14.0)
       ref
@@ -214,6 +219,7 @@ DEPENDENCIES
   bullet!
   carrierwave
   coffee-rails (~> 4.0.0)
+  configus
   coveralls
   factory_girl_rails (~> 4.0)
   haml-rails
@@ -223,6 +229,7 @@ DEPENDENCIES
   less-rails
   pg
   rails (= 4.0.0)
+  rails-observers
   rails_12factor
   ransack
   sass-rails (~> 4.0.0)
@@ -231,6 +238,7 @@ DEPENDENCIES
   simplecov
   state_machine
   tconsole
+  test_after_commit
   therubyracer
   turbolinks
   twitter-bootstrap-rails
