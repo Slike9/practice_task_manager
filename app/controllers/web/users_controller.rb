@@ -7,7 +7,7 @@ class Web::UsersController < Web::ApplicationController
 
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.register
       redirect_to root_url, notice: t('flashes.user.registered')
     else
       render :new

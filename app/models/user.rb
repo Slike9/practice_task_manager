@@ -1,7 +1,9 @@
 class User < ActiveRecord::Base
-  has_secure_password
+  include UserStates
 
   validates :email, presence: true, uniqueness: true
+
+  has_secure_password
 
   mount_uploader :avatar, AvatarUploader
 
