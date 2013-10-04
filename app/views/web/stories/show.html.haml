@@ -9,10 +9,10 @@
   = @story.description
 %p
   %b #{Story.human_attribute_name(:author)}:
-  = @story.author
+  = @story.author_name
 %p
   %b #{Story.human_attribute_name(:owner)}:
-  = @story.owner
+  = @story.owner_name
 
 = link_to t('helpers.links.edit'), edit_story_path(@story)
 \|

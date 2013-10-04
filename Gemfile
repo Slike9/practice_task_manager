@@ -39,11 +39,11 @@ gem 'carrierwave'
 gem 'ancestry'
 gem 'rails-observers'
 gem 'configus'
+gem 'draper'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
 gem "factory_girl_rails", "~> 4.0"
-gem 'wrong', group: :test
 
 gem "tconsole"
 gem 'unicorn'
@@ -54,6 +54,7 @@ end
 
 group :test do
   gem 'test_after_commit'
+  gem 'wrong'
 end
 
 group :production do

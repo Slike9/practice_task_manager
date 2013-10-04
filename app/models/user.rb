@@ -9,7 +9,11 @@ class User < ActiveRecord::Base
     persisted? && created_at == updated_at
   end
 
-  def to_s
+  def name
     email
+  end
+
+  def to_s
+    name
   end
 end

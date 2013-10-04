@@ -17,12 +17,12 @@
     %th
     %th
 
-  - @stories.each do |story|
+  - @stories.decorate.each do |story|
     %tr
       %td= story.title
       %td= story.description
-      %td= story.author
-      %td= story.owner
+      %td= story.author_name
+      %td= story.owner_name
       %td= story.human_state_name
       %td= render partial: 'events', locals: {story: story}
       %td= link_to t('helpers.links.show'), story
