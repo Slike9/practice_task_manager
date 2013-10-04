@@ -18,7 +18,8 @@
 \|
 = link_to t('helpers.links.back'), stories_path
 
-= render partial: 'comments/form', locals: {comment: Comment.new, story: @story}
+.commentation
+  = render partial: 'web/comments/form', locals: {comment: Comment.new, story: @story}
 
-%h2= t('.comments_title')
-= render partial: 'comments/comment', collection: @story.comments.ordered_by_time
+  %h2= t('.comments_title')
+  = render partial: 'web/comments/comments', locals: {comments: @comments}

@@ -1,0 +1,4 @@
+en:
+  user_mailer:
+    registration_email:
+      subject: Registration in TaskManager

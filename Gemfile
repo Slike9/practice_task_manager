@@ -37,15 +37,26 @@ gem 'ransack'
 gem 'kaminari-bootstrap'
 gem 'carrierwave'
 gem 'ancestry'
+gem 'rails-observers'
+gem 'configus'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
 gem "factory_girl_rails", "~> 4.0"
+gem 'wrong', group: :test
 
 gem "tconsole"
 gem 'unicorn'
 
-group 'production' do
+group :development do
+  gem 'bullet', github: 'flyerhzm/bullet'
+end
+
+group :test do
+  gem 'test_after_commit'
+end
+
+group :production do
   gem 'rails_12factor'
 end
 

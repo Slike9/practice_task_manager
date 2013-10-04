@@ -1,31 +1,41 @@
 en:
-  main_menu:
-    profile: Profile
-    edit_profile: Edit profile
-    sign_in: Sign in
-    sign_up: Sign up
-    sign_out: Sign out
-  welcome:
-    index:
-      title: Welcome
-  users:
-    new:
-      title: Registration
-    edit:
-      title: User editing
-  sessions:
-    new:
-      title: Sign in
-  stories:
-    index:
-      title: Stories
-      filter_title: Filter
-    new:
-      title: New story
-    show:
-      comments_title: Comments
-    edit:
-      title: Editing story
-  comments:
-    comment:
-      comment: Comment
+  breadcrumbs:
+    web:
+      application:
+        home: Home
+      stories:
+        stories: Stories
+        story: Story
+        new: New
+        edit: Edit
+  web:
+    main_menu:
+      profile: Profile
+      edit_profile: Edit profile
+      sign_in: Sign in
+      sign_up: Sign up
+      sign_out: Sign out
+    welcome:
+      index:
+        title: Welcome
+    users:
+      new:
+        title: Registration
+      edit:
+        title: User editing
+    sessions:
+      new:
+        title: Sign in
+    stories:
+      index:
+        title: Stories
+        filter_title: Filter
+      new:
+        title: New story
+      edit:
+        title: Editing story
+      show:
+        comments_title: Comments
+    comments:
+      comment:
+        comment: Comment

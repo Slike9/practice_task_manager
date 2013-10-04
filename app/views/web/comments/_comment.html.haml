@@ -1,4 +1,4 @@
-%p
+.comment
   =l comment.created_at, format: :short
   by
   = comment.author
@@ -9,9 +9,7 @@
   = button_tag class: 'btn btn-link', data: {toggle: 'collapse', target: "##{comment_form_container_id}"} do
     = t('.comment')
   .comment-form-container{id: comment_form_container_id, class: 'collapse out'}
-    = render partial: 'comments/form', locals: {comment: comment.children.build}
+    = render partial: 'web/comments/form', locals: {story: comment.story, comment: comment.children.build}
 
   .comment-children
-    - comment.children.ordered_by_time.each do |child_comment|
-      .child-comment
-        = render child_comment
+    = render partial: 'web/comments/comments', locals: {comments: child_comments}

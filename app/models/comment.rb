@@ -5,7 +5,5 @@ class Comment < ActiveRecord::Base
   has_ancestry
 
   validates :body, presence: true
-  validates :story, presence: true, if: :root?
-
-  scope :ordered_by_time, ->{ order(created_at: :desc) }
+  validates :story, presence: true
 end

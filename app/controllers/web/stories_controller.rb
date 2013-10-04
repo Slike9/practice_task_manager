@@ -1,17 +1,27 @@
-class StoriesController < ApplicationController
+class Web::StoriesController < Web::ApplicationController
   before_action :set_story, only: [:show, :edit, :update, :destroy, :proceed_state]
+
+  add_breadcrumb :stories, :stories_path
+  add_breadcrumb :new, :new_story_path, only: [:new]
+  before_action only: [:show, :edit] do
+    add_breadcrumb :story, story_path(@story)
+  end
+  before_action only: :edit do
+    add_breadcrumb :edit, edit_story_path(@story)
+  end
 
   # GET /stories
   # GET /stories.json
   def index
     @search = Story.search(params[:q])
     @stories = @search.result
-    @stories = @stories.page(params[:page]).per(params[:per_page])
+    @stories = @stories.includes(:author, :owner).page(params[:page]).per(params[:per_page])
   end
 
   # GET /stories/1
   # GET /stories/1.json
   def show
+    @comments = @story.comments.includes(:author, :story).arrange(order: :created_at)
   end
 
   # GET /stories/new
