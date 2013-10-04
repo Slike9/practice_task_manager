@@ -1,7 +1,11 @@
 == Task Manager (Undev practice)
 
 {<img src="https://travis-ci.org/Slike9/practice_task_manager.png" />}[https://travis-ci.org/Slike9/practice_task_manager]
-{<img src="https://coveralls.io/repos/Slike9/practice_task_manager/badge.png?branch=coveralls" alt="Coverage Status" />}[https://coveralls.io/r/Slike9/practice_task_manager?branch=coveralls]
+{<img src="https://coveralls.io/repos/Slike9/practice_task_manager/badge.png?branch=master" alt="Coverage Status" />}[https://coveralls.io/r/Slike9/practice_task_manager?branch=master]
+
+* Demo
+
+  http://pure-mesa-3708.herokuapp.com/
 
 * Ruby version: 2.0.0
 
