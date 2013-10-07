@@ -41,6 +41,7 @@ gem 'rails-observers'
 gem 'configus'
 gem 'draper'
 gem 'cocoon'
+gem 'responders'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false

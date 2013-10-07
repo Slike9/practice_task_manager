@@ -3,35 +3,26 @@ class Web::UsersController < Web::ApplicationController
 
   def new
     @user = User.new
+    respond_with(@user)
   end
 
   def create
     @user = User.new(user_params)
-    if @user.register
-      redirect_to root_url, notice: t('flashes.user.registered')
-    else
-      render :new
-    end
+    @user.register
+    respond_with(@user, location: root_url)
   end
 
   def show
-
+    respond_with(@user)
   end
 
   def edit
-
+    respond_with(@user)
   end
 
   def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: 'edit' }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+    @user.update(user_params)
+    respond_with(@user)
   end
 
   private

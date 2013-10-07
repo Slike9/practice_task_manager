@@ -21,10 +21,3 @@
 
 en:
   app_title: Task Manager
-
-  flashes:
-    story:
-      invalid_state_event: 'Invalid story state event'
-      state_changed: "The story is %{state}"
-    user:
-      registered: 'Your have registered successfully'
