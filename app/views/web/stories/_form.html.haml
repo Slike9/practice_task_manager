@@ -6,6 +6,17 @@
     = f.input :description
     = f.association :owner, collection: User.all
 
+  %button.btn.btn-link{type: 'button', data: {toggle: 'collapse', target: '#comments'}}
+    %h3
+      = t('.comments_title')
+      %i.icon-chevron-down
+  #comments.collapse.out
+    = f.simple_fields_for :comments do |comment_form|
+      .nested-fields
+        = comment_form.input_field :body, label: false
+        = link_to_remove_association comment_form do
+          %i.icon-remove
+
   .form-actions
     = f.button :submit
     = render partial: 'events', locals: {story: @story} if @story.persisted?

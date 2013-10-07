@@ -7,5 +7,7 @@ class Story < ActiveRecord::Base
 
   validates :title, presence: true
 
+  accepts_nested_attributes_for :comments, allow_destroy: true, reject_if: :all_blank
+
   paginates_per 10
 end

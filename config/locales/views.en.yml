@@ -36,6 +36,8 @@ en:
         title: Editing story
       show:
         comments_title: Comments
+      form:
+        comments_title: Comments
     comments:
       comment:
         comment: Comment

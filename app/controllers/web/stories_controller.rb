@@ -92,6 +92,6 @@ class Web::StoriesController < Web::ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def story_params
-      params.require(:story).permit(:title, :description, :owner_id)
+      params.require(:story).permit(:title, :description, :owner_id, :comments_attributes => [:id, :body, :_destroy])
     end
 end
