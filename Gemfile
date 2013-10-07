@@ -42,6 +42,7 @@ gem 'configus'
 gem 'draper'
 gem 'cocoon'
 gem 'responders'
+gem 'contracts'
 
 gem 'simplecov', :require => false
 gem 'coveralls', require: false
