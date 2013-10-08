@@ -19,3 +19,4 @@ coverage
 .tconsole
 .env
 /public/uploads
+/public/assets
