@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
   include UserStates
 
+  has_many :assigned_stories, foreign_key: 'owner_id', class_name: 'Story', dependent: :nullify
+  has_many :authored_stories, foreign_key: 'author_id', class_name: 'Story', dependent: :nullify
+
   validates :email, presence: true, uniqueness: true
 
   has_secure_password
