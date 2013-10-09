@@ -11,7 +11,7 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test 'user creating' do
-    user_params = attributes_for(:user)
+    user_params = attributes_for(:user_with_password_confirmation)
     post :create, user: user_params
     assert_response :redirect
 
@@ -32,7 +32,7 @@ class Web::UsersControllerTest < ActionController::TestCase
   end
 
   test 'patch update' do
-    user_params = attributes_for(:user)
+    user_params = attributes_for(:user_with_password_confirmation)
     patch :update, id: @user, user: user_params
     assert_response :redirect
 

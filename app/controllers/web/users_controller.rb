@@ -2,12 +2,12 @@ class Web::UsersController < Web::ApplicationController
   before_action :set_user, only: [:show, :edit, :update]
 
   def new
-    @user = User.new
+    @user = UserEditType.new
     respond_with(@user)
   end
 
   def create
-    @user = User.new(user_params)
+    @user = UserEditType.new(user_params)
     @user.register
     respond_with(@user, location: root_url)
   end
@@ -28,7 +28,7 @@ class Web::UsersController < Web::ApplicationController
   private
 
   def set_user
-    @user = User.find(params[:id])
+    @user = UserEditType.find(params[:id])
   end
 
   def user_params

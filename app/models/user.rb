@@ -5,8 +5,9 @@ class User < ActiveRecord::Base
   has_many :authored_stories, foreign_key: 'author_id', class_name: 'Story', dependent: :nullify
 
   validates :email, presence: true, uniqueness: true
+  validates :password, presence: true, on: :create
 
-  has_secure_password
+  has_secure_password validations: false
 
   mount_uploader :avatar, AvatarUploader
 
