@@ -10,10 +10,6 @@ class User < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
-  def just_registered?
-    persisted? && created_at == updated_at
-  end
-
   def name
     email
   end
