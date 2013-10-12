@@ -22,9 +22,9 @@ class Web::StoriesControllerTest < ActionController::TestCase
     post :create, story: story_params
     assert_response :redirect
     created_story = Story.find_by(title: story_params[:title])
-    assert created_story.present?
-    assert_equal created_story.description, story_params[:description]
-    assert_equal @current_user, created_story.author
+    assert { created_story.present? }
+    assert { created_story.description == story_params[:description] }
+    assert { @current_user == created_story.author }
   end
 
   test "show story" do
@@ -42,14 +42,14 @@ class Web::StoriesControllerTest < ActionController::TestCase
     patch :update, id: @story, story: story_params
     assert_response :redirect
     @story.reload
-    assert_equal story_params[:title], @story.title
-    assert_equal story_params[:description], @story.description
+    assert { story_params[:title] == @story.title }
+    assert { story_params[:description] == @story.description }
   end
 
   test "destroy story" do
     delete :destroy, id: @story
     assert_response :redirect
-    assert_not Story.exists?(title: @story.title)
+    assert { not Story.exists?(title: @story.title) }
   end
 
   test 'story state changing' do
@@ -57,7 +57,7 @@ class Web::StoriesControllerTest < ActionController::TestCase
     patch :proceed_state, id: story.id, event: :start
     assert_response :redirect
     story.reload
-    assert story.started?
+    assert { story.started? }
   end
 
 end

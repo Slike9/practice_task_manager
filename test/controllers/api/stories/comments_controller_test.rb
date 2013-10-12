@@ -16,7 +16,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   test 'delete comment' do
     delete :destroy, format: :json, story_id: @story, id: @comment
     assert_response :success
-    assert_not @story.comments.exists?(body: @comment.body)
+    assert { not @story.comments.exists?(body: @comment.body) }
   end
 
   test "create comment" do
@@ -24,8 +24,8 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
     post :create, format: :json, story_id: @story, comment: comment_params
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)
-    assert created_comment.present?
-    assert_nil created_comment.parent
+    assert { created_comment.present? }
+    assert { created_comment.parent.nil? }
   end
 
   test 'create child comment' do
@@ -33,8 +33,8 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
     post :create, format: :json, story_id: @story, comment: comment_params
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)
-    assert created_comment.present?
-    assert {@comment == created_comment.parent}
+    assert { created_comment.present? }
+    assert { @comment == created_comment.parent }
   end
 
   test 'update comment' do
@@ -42,7 +42,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
     patch :update, format: :json, story_id: @story, id: @comment, comment: comment_params
     assert_response :success
     comment = @story.comments.find_by(body: comment_params[:body])
-    assert comment.present?
+    assert { comment.present? }
   end
 
 end

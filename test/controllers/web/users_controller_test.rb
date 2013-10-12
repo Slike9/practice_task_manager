@@ -37,7 +37,7 @@ class Web::UsersControllerTest < ActionController::TestCase
     assert_response :redirect
 
     @user.reload
-    assert user_params[:email], @user.email
+    assert { user_params[:email] == @user.email }
   end
 
   private
