@@ -5,7 +5,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
     @current_user = create(:user)
     sign_in(@current_user)
     @story = create(:story)
-    @comment = create(:comment, story: @story)
+    @comment = create('story/comment', story: @story)
   end
 
   test 'show comment' do
@@ -20,7 +20,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   end
 
   test "create comment" do
-    comment_params = attributes_for(:comment)
+    comment_params = attributes_for('story/comment')
     post :create, format: :json, story_id: @story, comment: comment_params
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)
@@ -29,7 +29,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   end
 
   test 'create child comment' do
-    comment_params = attributes_for(:comment, parent_id: @comment.id)
+    comment_params = attributes_for('story/comment', parent_id: @comment.id)
     post :create, format: :json, story_id: @story, comment: comment_params
     assert_response :created
     created_comment = @story.comments.find_by(body: comment_params[:body], author: current_user)
@@ -38,7 +38,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   end
 
   test 'update comment' do
-    comment_params = attributes_for(:comment)
+    comment_params = attributes_for('story/comment')
     patch :update, format: :json, story_id: @story, id: @comment, comment: comment_params
     assert_response :success
     comment = @story.comments.find_by(body: comment_params[:body])

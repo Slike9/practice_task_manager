@@ -12,7 +12,7 @@ FactoryGirl.define do
     end
 
     after(:create) do |story, evaluator|
-      FactoryGirl.create_list(:comment_with_children, evaluator.comment_count, story: story)
+      FactoryGirl.create_list('story/comment_with_children', evaluator.comment_count, story: story)
     end
   end
 end

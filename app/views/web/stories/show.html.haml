@@ -19,7 +19,7 @@
 = link_to t('helpers.links.back'), stories_path
 
 .commentation
-  = render partial: 'web/comments/form', locals: {comment: Comment.new, story: @story}
+  = render partial: 'web/stories/comments/form', locals: {comment: @story.comments.build, story: @story}
 
   %h2= t('.comments_title')
-  = render partial: 'web/comments/comments', locals: {comments: @comments}
+  = render partial: 'web/stories/comments/comments', locals: {comments: @comments}

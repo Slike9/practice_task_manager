@@ -1,4 +1,4 @@
-= simple_form_for([:api, story, comment], html: {data: {remote: true, format: :json}}) do |f|
+= simple_form_for(api_story_comment_path(story, comment), html: {data: {remote: true, format: :json}}) do |f|
   = f.input :body, label: false, input_html: {rows: 4, class: 'span5'}
   = f.input :parent_id, as: :hidden
   = f.button :submit

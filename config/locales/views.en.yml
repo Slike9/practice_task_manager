@@ -38,6 +38,6 @@ en:
         comments_title: Comments
       form:
         comments_title: Comments
-    comments:
-      comment:
-        comment: Comment
+      comments:
+        comment:
+          comment: Comment

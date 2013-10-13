@@ -16,19 +16,6 @@ ActiveRecord::Schema.define(version: 20131004160023) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "comments", force: true do |t|
-    t.text     "body"
-    t.integer  "author_id"
-    t.integer  "story_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "ancestry"
-  end
-
-  add_index "comments", ["ancestry"], name: "index_comments_on_ancestry", using: :btree
-  add_index "comments", ["author_id"], name: "index_comments_on_author_id", using: :btree
-  add_index "comments", ["story_id"], name: "index_comments_on_story_id", using: :btree
-
   create_table "stories", force: true do |t|
     t.string   "title"
     t.text     "description"
@@ -41,6 +28,19 @@ ActiveRecord::Schema.define(version: 20131004160023) do
 
   add_index "stories", ["author_id"], name: "index_stories_on_author_id", using: :btree
   add_index "stories", ["owner_id"], name: "index_stories_on_owner_id", using: :btree
+
+  create_table "story_comments", force: true do |t|
+    t.text     "body"
+    t.integer  "author_id"
+    t.integer  "story_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+  end
+
+  add_index "story_comments", ["ancestry"], name: "index_story_comments_on_ancestry", using: :btree
+  add_index "story_comments", ["author_id"], name: "index_story_comments_on_author_id", using: :btree
+  add_index "story_comments", ["story_id"], name: "index_story_comments_on_story_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",           null: false
