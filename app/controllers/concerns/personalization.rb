@@ -1,4 +1,4 @@
-module Personalization
+module Concerns::Personalization
   include Contracts
 
   Contract None => Bool

@@ -31,5 +31,5 @@ class MiniTest::Unit::TestCase
 end
 
 class ActionController::TestCase
-  include Personalization
+  include Concerns::Personalization
 end
