@@ -16,7 +16,7 @@ class Api::Stories::CommentsControllerTest < ActionController::TestCase
   test 'delete comment' do
     delete :destroy, format: :json, story_id: @story, id: @comment
     assert_response :success
-    assert { not @story.comments.exists?(body: @comment.body) }
+    assert { not @story.comments.exists?(@comment) }
   end
 
   test "create comment" do

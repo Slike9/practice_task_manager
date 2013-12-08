@@ -10,11 +10,12 @@ class Web::StoriesController < Web::ApplicationController
     add_breadcrumb :edit, edit_story_path(@story)
   end
 
-  # GET /stories
+  # get /stories
   def index
     @search = Story.search(params[:q])
     @stories = @search.result.includes(:author, :owner)
     @stories = @stories.page(params[:page]).per(params[:per_page])
+
     respond_with(@stories)
   end
 
@@ -22,12 +23,14 @@ class Web::StoriesController < Web::ApplicationController
   def show
     @comments = @story.comments.includes(:author, :story).arrange(order: :created_at)
     @story = @story.decorate
-    respond_with(@story)
+
+    respond_with @story
   end
 
   # GET /stories/new
   def new
     @story = Story.new
+
     respond_with(@story)
   end
 
@@ -41,18 +44,21 @@ class Web::StoriesController < Web::ApplicationController
     @story = Story.new(story_params)
     @story.author = current_user
     @story.save
+
     respond_with(@story)
   end
 
-  # PATCH/PUT /stories/1
+    # PATCH/PUT /stories/1
   def update
     @story.update(story_params)
+
     respond_with(@story)
   end
 
   # DELETE /stories/1
   def destroy
     @story.destroy
+
     respond_with(@story)
   end
 

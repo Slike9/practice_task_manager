@@ -50,6 +50,7 @@ gem "factory_girl_rails", "~> 4.0"
 
 gem "tconsole"
 gem 'unicorn'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'bullet', github: 'flyerhzm/bullet'
