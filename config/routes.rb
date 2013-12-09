@@ -7,6 +7,8 @@ PracticeTaskManager::Application.routes.draw do
 
   scope module: :web do
     resources :users
+    resources :images, only: [:show]
+    resources :posts
     resource :session
     resources :stories do
       patch :proceed_state, on: :member
