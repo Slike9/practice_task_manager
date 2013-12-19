@@ -9,7 +9,7 @@
     - params[:id] ||= 1
     - params[:im] ||= '1.png'
     %meta(property='og:url' content="http://pure-mesa-3708.herokuapp.com#{request.path}/?sleep=#{params[:sleep]}&f=#{f}&i=#{params[:i]}&im=#{params[:im]}")
-    %meta(property='og:image' content="http://pure-mesa-3708.herokuapp.com/images/#{params[:id]}.#{f}?sleep=#{params[:sleep]}&im=#{params[:im]}"")
+    %meta(property='og:image' content="http://pure-mesa-3708.herokuapp.com/images/#{params[:id]}.#{f}?sleep=#{params[:sleep]}&im=#{params[:im]}")
     %meta(property='og:title' content='title')
     %meta(property='og:description' content='description')
     = csrf_meta_tags
