@@ -11,12 +11,14 @@ class Web::ImagesController < ApplicationController
     respond_to do |format|
       format.png do
         puts '11111'
-        send_file Rails.root.join(t_file), type: 'image/png', disposition: 'inline'
+        send_data File.binread(Rails.root.join(t_file)), type: 'image/png', disposition: 'inline'
+        #send_file Rails.root.join(t_file), type: 'image/png', disposition: 'inline'
         #FileUtils.rm(t_file)
         puts '2222222'
       end
       format.jpeg do
-        send_file Rails.root.join(t_file), type: 'image/jpeg', disposition: 'inline'
+        send_data File.binread(Rails.root.join(t_file)), type: 'image/png', disposition: 'inline'
+        #send_file Rails.root.join(t_file), type: 'image/jpeg', disposition: 'inline'
         #FileUtils.rm(t_file)
       end
     end
