@@ -1,6 +1,5 @@
 class Web::PlaylistsController < ApplicationController
   def show
-    sleep 3
-
+    sleep params[:sleep] if params[:sleep]
   end
 end
