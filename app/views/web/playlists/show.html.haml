@@ -1,5 +1,5 @@
 - image_id = params[:image_id] || params[:id]
-time = params[:time] || Time.now.to_i
+- time = params[:time] || Time.now.to_i
 = image_tag "http://digitaloctober.tv/playlists/#{image_id}/thumbnails/fb.png"
 = image_tag "http://digitaloctober.tv/videos/322/thumbnails/fb.png?time=#{time}"
 = image_tag "http://digitaloctober.tv/system/uploads/Video/preview/#{image_id}/#{image_id}_big.JPG?time=#{time}"
