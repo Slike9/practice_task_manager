@@ -20,6 +20,7 @@ class Web::ImagesController < ApplicationController
         #send_data File.binread(Rails.root.join(t_file)), type: 'image/png', disposition: 'inline'
         puts 'jpg'
         send_file t_file, type: 'image/jpeg', disposition: 'inline'
+        t.close!
         #FileUtils.rm(t_file)
       end
     end

@@ -13,6 +13,7 @@ PracticeTaskManager::Application.routes.draw do
     resources :stories do
       patch :proceed_state, on: :member
     end
+    resources :playlists
   end
 
   namespace :api do
