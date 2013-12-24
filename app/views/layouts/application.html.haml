@@ -11,7 +11,7 @@
     -#%meta(property='og:url' content="http://pure-mesa-3708.herokuapp.com#{request.path}/?sleep=#{params[:sleep]}&f=#{f}&i=#{params[:i]}&im=#{params[:im]}")
     -#%meta(property='og:image' content="http://pure-mesa-3708.herokuapp.com/images/#{params[:id]}.#{f}?sleep=#{params[:sleep]}&im=#{params[:im]}")
     - image_id = params[:image_id] || params[:id]
-    %meta{property: 'og:url', content: "http://pure-mesa-3708.herokuapp.com/playlists/#{params[:id]}?image_id=#{image_id}&sleep=#{params[:sleep]}"}
+    %meta{property: 'og:url', content: "http://pure-mesa-3708.herokuapp.com/playlists/#{params[:id]}?image_id=#{image_id}&sleep=#{params[:sleep]}&time=#{params[:time]}"}
     %meta{property: 'og:image', content: "http://digitaloctober.tv/playlists/#{params[:id]}/thumbnails/fb.jpg"}
     %meta(property='og:title' content="playlist #{params[:id]}")
     %meta(property='og:description' content="playlist description #{params[:id]}")
