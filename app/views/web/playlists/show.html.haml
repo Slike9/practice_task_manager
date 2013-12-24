@@ -1,1 +1,2 @@
-= image_tag "http://digitaloctober.tv/playlists/#{params[:id]}/thumbnails/fb.jpg"
+- image_id = params[:image_id] || params[:id]
+= image_tag "http://digitaloctober.tv/playlists/#{image_id}/thumbnails/fb.jpg"
